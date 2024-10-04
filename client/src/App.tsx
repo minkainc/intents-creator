@@ -3,8 +3,8 @@ import axios from 'axios';
 import './App.css';
 
 interface FormData {
-  sourceAccount: string;
-  destinationAccount: string;
+  source: string;
+  target: string;
   currency: string;
   amount: string;
   useSDK: boolean;
@@ -12,8 +12,8 @@ interface FormData {
 
 function App() {
   const [formData, setFormData] = useState<FormData>({
-    sourceAccount: '',
-    destinationAccount: '',
+    source: '',
+    target: '',
     currency: '',
     amount: '',
     useSDK: false,
@@ -33,12 +33,10 @@ function App() {
       const endpoint = formData.useSDK
         ? '/api/create-intent-sdk'
         : '/api/create-intent-non-sdk';
-      const response = await axios.post(`http://localhost:3001${endpoint}`, formData);
-      console.log(response.data);
-      alert('Intent creado exitosamente');
+      const response = await axios.post(`http://localhost:3002${endpoint}`, formData);
+      console.log(response.data);  
     } catch (error) {
       console.error('Error al crear el intent:', error);
-      alert('Error al crear el intent');
     }
   };
 
@@ -47,23 +45,23 @@ function App() {
       <h1>Crear Intent</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="sourceAccount">Cuenta origen:</label>
+          <label htmlFor="source">Cuenta origen:</label>
           <input
             type="text"
-            id="sourceAccount"
-            name="sourceAccount"
-            value={formData.sourceAccount}
+            id="source"
+            name="source"
+            value={formData.source}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="destinationAccount">Cuenta destino:</label>
+          <label htmlFor="target">Cuenta destino:</label>
           <input
             type="text"
-            id="destinationAccount"
-            name="destinationAccount"
-            value={formData.destinationAccount}
+            id="target"
+            name="target"
+            value={formData.target}
             onChange={handleChange}
             required
           />
