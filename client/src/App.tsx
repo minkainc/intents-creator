@@ -1,41 +1,19 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import './App.css';
-
-interface FormData {
-  source: string;
-  target: string;
-  currency: string;
-  amount: string;
-  useSDK: boolean;
-}
+import IntentForm from './components/IntentForm';
+import { IntentData } from './types/intent';
+import { createIntent } from './api/intentApi';
 
 function App() {
-  const [formData, setFormData] = useState<FormData>({
-    source: '',
-    target: '',
-    currency: '',
-    amount: '',
-    useSDK: false,
-  });
+  const [notification, setNotification] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (intentData: IntentData) => {
     try {
-      const endpoint = formData.useSDK
-        ? '/api/create-intent-sdk'
-        : '/api/create-intent-non-sdk';
-      const response = await axios.post(`http://localhost:3002${endpoint}`, formData);
-      console.log(response.data);  
+      const result = await createIntent(intentData);
+      setNotification({ type: 'success', message: 'Intent creado exitosamente' });
+      console.log(result);
     } catch (error) {
+    //   setNotification({ type: 'error', message: 'Error al crear el intent' });
       console.error('Error al crear el intent:', error);
     }
   };
@@ -43,63 +21,12 @@ function App() {
   return (
     <div className="App">
       <h1>Crear Intent</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="source">Cuenta origen:</label>
-          <input
-            type="text"
-            id="source"
-            name="source"
-            value={formData.source}
-            onChange={handleChange}
-            required
-          />
+      {notification && (
+        <div className={`notification ${notification.type}`}>
+          {notification.message}
         </div>
-        <div>
-          <label htmlFor="target">Cuenta destino:</label>
-          <input
-            type="text"
-            id="target"
-            name="target"
-            value={formData.target}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="currency">Moneda:</label>
-          <input
-            type="text"
-            id="currency"
-            name="currency"
-            value={formData.currency}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="amount">Monto:</label>
-          <input
-            type="number"
-            id="amount"
-            name="amount"
-            value={formData.amount}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="useSDK">Usar SDK:</label>
-          <input
-            type="checkbox"
-            id="useSDK"
-            name="useSDK"
-            checked={formData.useSDK}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Crear Intent</button>
-      </form>
+      )}
+      <IntentForm onSubmit={handleSubmit} />
     </div>
   );
 }

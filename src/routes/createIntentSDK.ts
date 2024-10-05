@@ -5,25 +5,23 @@ import dotenv from 'dotenv'
 dotenv.config({ path: `${__dirname}/../.env` })
 import { config } from './../config'
 
-
 const encode = 'ed25519-raw';
 
-
 function getIntent(body: any) {
-    const intent = {
+    const intent: any = {
         "handle": nanoid(17),
         "claims": [
             {
                 "action": "transfer",
                 "amount": parseInt(body.amount) * 100, 
                 "source": {
-                    "handle": body.source
+                    "handle": `${body.sourceType}:${body.source}`
                 },
                 "symbol": {
                     "handle": body.currency
                 },
                 "target": {
-                    "handle": body.target
+                    "handle": `${body.targetType}:${body.target}`
                 }
             }
         ],
@@ -48,6 +46,14 @@ function getIntent(body: any) {
             "commit": "auto"
         }
     };
+
+    if(body.customDataSource.trim() !== '')
+        intent.claims[0].source.custom = JSON.parse(body.customDataSource);
+    if(body.customDataTarget.trim() !== '')
+        intent.claims[0].target.custom = JSON.parse(body.customDataTarget);
+    
+
+    console.log(`intent a enviar: ${JSON.stringify(intent, null, 2)}`);
     return intent;
 }
 
@@ -66,7 +72,7 @@ async function sendIntent(req: Request) {
                 },
             },
         ])
-        .send();
+       .send();
         
 }
 
