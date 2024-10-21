@@ -21,7 +21,7 @@ To set up the project, follow these steps:
 
 2. Set up the server:
    ```
-   cd server
+   cd src
    npm install
    ```
 
@@ -49,6 +49,7 @@ To run the application, you need to start both the server and the client:
    cd src
    npm start
    ```
+   
    The server will start on `http://localhost:3002`.
 
 2. In a new terminal, start the client:
