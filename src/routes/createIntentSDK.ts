@@ -47,19 +47,18 @@ function getIntent(body: any) {
         }
     };
 
-    if(body.customDataSource.trim() !== '')
-        intent.claims[0].source.custom = JSON.parse(body.customDataSource);
-    if(body.customDataTarget.trim() !== '')
-        intent.claims[0].target.custom = JSON.parse(body.customDataTarget);
-    
+    if(Object.keys(body.customDataSource).length > 0)
+        intent.claims[0].source.custom = body.customDataSource;
+    if(Object.keys(body.customDataTarget).length > 0)
+        intent.claims[0].target.custom = body.customDataTarget;
 
-    console.log(`intent a enviar: ${JSON.stringify(intent, null, 2)}`);
     return intent;
 }
 
+
 async function sendIntent(req: Request) {   
-     
-    getSDK().intent
+    const sdk = getSDK(); 
+    await sdk.intent
         .init()
         .data(getIntent(req.body))
         .hash()
@@ -69,22 +68,28 @@ async function sendIntent(req: Request) {
                     public: config.INTENT_PUBLIC_KEY,
                     format: encode,
                     secret: config.INTENT_PRIVATE_KEY,
-                },
-            },
+                }
+            }
+            
         ])
        .send();
-        
+       console.log(`SDK: ${sdk.options.server}`);
 }
 
 const getSDK = () => { 
     const sdk = new LedgerSdk({
         server: config.LEDGER_SERVER,
         ledger: config.LEDGER_HANDLE
-    })
+    });
     return sdk;
 }
 
-export const createIntentSDK = (req: Request, res: Response) => {
-    sendIntent(req); 
+export const createIntentSDK = async (req: Request, res: Response) => {
+    try {
+        await sendIntent(req);
+        res.status(200).send('Intent sent successfully');
+    } catch (error) {
+        console.error('Error sending intent:', error);
+        res.status(500).json({ error: 'An error occurred while sending the intent' });
+    }
 };
-

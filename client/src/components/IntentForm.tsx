@@ -12,7 +12,12 @@ const IntentForm: React.FC<IntentFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(intent);
+    const clonedIntent = {
+      ...intent,
+      customDataSource: JSON.parse(intent.customDataSource || '{}'),
+      customDataTarget: JSON.parse(intent.customDataTarget || '{}'),
+    };
+    onSubmit(clonedIntent);
   };
 
   return (

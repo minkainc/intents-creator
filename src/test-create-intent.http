@@ -1,0 +1,53 @@
+### Test create-intent-sdk API
+
+POST http://localhost:3002/api/create-intent-sdk
+Accept: application/json
+Content-Type: application/json
+
+{
+  "sourceType": "svgs",
+  "source": "424224@paula.bank",
+  "customDataSource": {
+    "name": "Julian Andrade",
+    "entityType": "individual",
+    "idType": "txid",
+    "idNumber": "8546544"
+  },
+  "targetType": "svgs",
+  "target": "121212@teslabank.io",
+  "customDataTarget": {
+    "name": "Julian Andrade",
+    "entityType": "individual",
+    "idType": "txid",
+    "idNumber": "8546544"
+  },
+  "currency": "usd",
+  "amount": "65"
+}
+### Test create-intent-non-sdk API
+
+POST http://localhost:3002/api/create-intent-non-sdk
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+
+{
+  "sourceType": "svgs",
+  "source": "424224@paula.bank",
+  "customDataSource": {
+    "name": "Julian Andrade",
+    "entityType": "individual",
+    "idType": "txid",
+    "idNumber": "8546544"
+  },
+  "targetType": "svgs",
+  "target": "121212@teslabank.io",
+  "customDataTarget": {
+    "name": "Julian Andrade",
+    "entityType": "individual",
+    "idType": "txid",
+    "idNumber": "8546544"
+  },
+  "currency": "usd",
+  "amount": "65",
+  "useSDK": false
+}

@@ -18,10 +18,6 @@ interface Intent {
   };
 }
 
-export const createIntentNonSDK = (req: Request, res: Response) => {
-  send(getIntent(req.body));
-};
-
 function getIntent(body: any) {
   const intent: any = {
       "handle": nanoid(17),
@@ -62,10 +58,10 @@ function getIntent(body: any) {
       }
   };
 
-  if(body.customDataSource.trim() !== '')
-      intent.claims[0].source.custom = JSON.parse(body.customDataSource);
-  if(body.customDataTarget.trim() !== '')
-      intent.claims[0].target.custom = JSON.parse(body.customDataTarget);
+  if(Object.keys(body.customDataSource).length > 0)
+      intent.claims[0].source.custom = body.customDataSource;
+  if(Object.keys(body.customDataTarget).length > 0)
+      intent.claims[0].target.custom = body.customDataTarget;
   return intent;
 }
 
@@ -151,6 +147,7 @@ async function send(data: any): Promise<any> {
   };
 
   try {
+    console.log(`request: ${config.LEDGER_SERVER}/intents`);
     const response = await axios.post<any>(`${config.LEDGER_SERVER}/intents`, intent, {
       headers: {
         'x-ledger': config.LEDGER_HANDLE
@@ -167,3 +164,13 @@ async function send(data: any): Promise<any> {
     }
   }
 }
+
+export const createIntentNonSDK = async (req: Request, res: Response) => {
+  try {
+    const response = await send(getIntent(req.body));
+    res.status(200).json(response);
+  } catch (error) {
+    console.error('Error creating intent:', error);
+    res.status(500).json({ error: 'An error occurred while creating the intent' });
+  }
+};
