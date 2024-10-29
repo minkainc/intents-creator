@@ -21,6 +21,7 @@ To set up the project, follow these steps:
 
 2. Set up the server:
    ```
+   npm install -g typescript ts-node   
    cd src
    npm install
    ```
@@ -51,6 +52,19 @@ To run the application, you need to start both the server and the client:
    ```
    
    The server will start on `http://localhost:3002`.
+
+If you want to avoid having to restart the service after each change, you can install a tool like nodemon that will monitor your project for changes and automatically restart the service.
+
+To install nodemon, run:
+
+```bash
+npm install -g nodemon
+```
+Then you should run the application using:
+
+```bash
+nodemon server.ts
+```
 
 2. In a new terminal, start the client:
    ```

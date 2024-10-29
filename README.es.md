@@ -20,6 +20,7 @@ Para configurar el proyecto, sigue estos pasos:
 
 2. Configura el servidor:
    ```
+   npm install -g typescript ts-node
    cd src
    npm install
    ```
@@ -49,6 +50,20 @@ Para ejecutar la aplicación, necesitas iniciar tanto el servidor como el client
    npm start
    ```
    El servidor se iniciará en `http://localhost:3002`.
+
+Si deseas evitar tener que reiniciar el servicio después de cada cambio, puedes instalar una herramienta como nodemon que monitoreará tu proyecto en busca de cambios y reiniciará automáticamente el servicio.
+
+Para instalar nodemon, ejecuta:
+
+```bash
+npm install -g nodemon
+```
+
+Luego deberás ejecutar la aplicación usando:
+
+```bash
+nodemon server.ts
+```
 
 2. En una nueva terminal, inicia el cliente:
    ```
