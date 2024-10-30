@@ -42,3 +42,4 @@ Thumbs.db
 *.pid
 *.gz
 *.tmp
+src/.env
