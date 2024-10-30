@@ -3,8 +3,8 @@ import crypto from 'node:crypto';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import dotenv from 'dotenv'
-dotenv.config({ path: `${__dirname}/../.env` })
-import { config } from './../config'
+dotenv.config({ path: `${__dirname}/../../.env` })
+import { config } from '../../config'
 
 const HASHING_ALGORITHM = 'sha256';
 

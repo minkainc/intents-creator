@@ -93,3 +93,82 @@ textarea {
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
+/* Estilos para la tabla de wallets */
+.wallet-list {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-list h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.wallet-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wallet-list th,
+.wallet-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.wallet-list th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #555;
+}
+
+.wallet-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Estilos para la navegación */
+.navigation {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.nav-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #e0e0e0;
+}
+
+.nav-button.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilos para la página de wallets */
+.wallets-page {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wallets-page h1 {
+  margin-bottom: 20px;
+  color: #333;
+}

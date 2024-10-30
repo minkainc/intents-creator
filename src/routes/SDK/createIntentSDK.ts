@@ -2,8 +2,8 @@ const { LedgerSdk } = require('@minka/ledger-sdk')
 const { nanoid } = require('nanoid')
 import { Request, Response } from 'express';
 import dotenv from 'dotenv'
-dotenv.config({ path: `${__dirname}/../.env` })
-import { config } from './../config'
+dotenv.config({ path: `${__dirname}/../../.env` })
+import { config } from '../../config'
 
 const encode = 'ed25519-raw';
 
