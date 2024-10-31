@@ -20,7 +20,6 @@ yarn-error.log*
 .env.production.local
 
 # IDE and editor files
-.vscode
 .idea
 *.swp
 *.swo
@@ -43,4 +42,3 @@ Thumbs.db
 *.pid
 *.gz
 *.tmp
-src/.env
