@@ -51,3 +51,8 @@ Content-Type: application/json
   "amount": "65",
   "useSDK": false
 }
+
+### Test get wallets API
+GET http://localhost:3002/api/wallets-sdk
+Accept: application/json
+Content-Type: application/json

@@ -4,6 +4,19 @@ import { Wallet } from '../types/wallet';
 const BASE_URL = 'http://localhost:3002/api';
 
 export const getWallets = async (): Promise<Wallet[]> => {
-  const response = await axios.get(`${BASE_URL}/wallets`);
-  return response.data;
+  try {
+    const response = await fetch(`${BASE_URL}/wallets-sdk`);
+    const data = await response.json();
+    
+    return data.map((wallet: any) => ({
+      id: wallet.handle,
+      name: wallet.handle,
+      parent: wallet.parent,
+      schema: wallet.schema,
+      access: wallet.access
+    }));
+  } catch (error) {
+    console.error('Error fetching wallets:', error);
+    throw error;
+  }
 }; 
