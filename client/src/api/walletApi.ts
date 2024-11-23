@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Wallet } from '../types/wallet';
 
-const BASE_URL = 'http://localhost:3002/api';
+const BASE_URL = 'http://localhost:9000/api';
 
 export const getWallets = async (): Promise<Wallet[]> => {
   try {
