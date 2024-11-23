@@ -3,6 +3,7 @@ import cors from 'cors';
 import { createIntentSDK } from './routes/SDK/createIntentSDK';
 import { createIntentNonSDK } from './routes/nonSDK/createIntentNonSDK';
 import { getWalletsSDK } from './routes/SDK/getWalletsSDK';
+import { getWalletsNonSDK } from './routes/nonSDK/GetWalletsNonSDK';
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -13,6 +14,7 @@ app.use(express.json());
 app.post('/api/create-intent-sdk', createIntentSDK);
 app.post('/api/create-intent-non-sdk', createIntentNonSDK);
 app.get('/api/wallets-sdk', getWalletsSDK);
+app.get('/api/wallets-non-sdk', getWalletsNonSDK);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
