@@ -49,7 +49,7 @@ Para ejecutar la aplicación, necesitas iniciar tanto el servidor como el client
    cd src
    npm start
    ```
-   El servidor se iniciará en `http://localhost:3002`.
+   El servidor se iniciará en `http://localhost:3001`.
 
 Si deseas evitar tener que reiniciar el servicio después de cada cambio, puedes instalar una herramienta como nodemon que monitoreará tu proyecto en busca de cambios y reiniciará automáticamente el servicio.
 
@@ -93,6 +93,27 @@ Si encuentras algún problema:
 ## Contribuciones
 
 Las contribuciones al proyecto Creador de Intents son bienvenidas.
+
+## Desarrollo con Contenedores
+
+Este proyecto está contenerizado para facilitar el desarrollo. Para utilizarlo:
+
+1. Asegúrate de tener instalado Docker y la extensión "Dev Containers" en Visual Studio Code o Cursor IDE.
+
+2. Al abrir el proyecto en VS Code o Cursor, presiona `Cmd+P` (Mac) o `Ctrl+P` (Windows/Linux) y ejecuta:
+   ```
+   >Dev Containers: Rebuild Container
+   ```
+   Esto montará el contenedor con todas las dependencias necesarias.
+
+3. Una vez dentro del contenedor, puedes utilizar las tasks predefinidas del IDE para ejecutar el proyecto:
+   - Presiona `Cmd+Shift+P` (Mac) o `Ctrl+Shift+P` (Windows/Linux)
+   - Selecciona "Tasks: Run Task"
+   - Elige:
+     - `start-dev-server` para iniciar el servidor, esto iniciará el servidor en el puerto 9000
+     - `start-client` para iniciar el cliente, esto iniciará el cliente en el puerto 3000
+
+Estas tasks facilitarán la ejecución del proyecto sin necesidad de recordar los comandos específicos. Este flujo de trabajo funciona tanto en Visual Studio Code como en Cursor IDE.
 
 ## Licencia
 

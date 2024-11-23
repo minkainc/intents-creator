@@ -95,6 +95,27 @@ If you encounter any issues:
 
 Contributions to the Intents Creator project are welcome. 
 
+## Container Development
+
+This project is containerized to facilitate development. To use it:
+
+1. Make sure you have Docker installed and the "Dev Containers" extension in Visual Studio Code or Cursor IDE.
+
+2. When opening the project in VS Code or Cursor, press `Cmd+P` (Mac) or `Ctrl+P` (Windows/Linux) and run:
+   ```
+   >Dev Containers: Rebuild Container
+   ```
+   This will build the container with all necessary dependencies.
+
+3. Once inside the container, you can use the predefined IDE tasks to run the project:
+   - Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+   - Select "Tasks: Run Task"
+   - Choose:
+     - `start-dev-server` to start the server, this will start the server on port 9000
+     - `start-client` to start the client, this will start the client on port 3000
+
+These tasks will make it easier to run the project without having to remember specific commands. This workflow works in both Visual Studio Code and Cursor IDE.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
