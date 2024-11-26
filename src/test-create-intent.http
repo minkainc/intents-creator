@@ -1,6 +1,6 @@
 ### Test create-intent-sdk API
 
-POST http://localhost:3002/api/create-intent-sdk
+POST http://localhost:9000/api/create-intent-sdk
 Accept: application/json
 Content-Type: application/json
 
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 ### Test create-intent-non-sdk API
 
-POST http://localhost:3002/api/create-intent-non-sdk
+POST http://localhost:9000/api/create-intent-non-sdk
 Accept: application/json, text/plain, */*
 Content-Type: application/json
 
@@ -53,6 +53,6 @@ Content-Type: application/json
 }
 
 ### Test get wallets API
-GET http://localhost:3002/api/wallets-sdk
+GET http://localhost:9000/api/wallets-sdk
 Accept: application/json
 Content-Type: application/json

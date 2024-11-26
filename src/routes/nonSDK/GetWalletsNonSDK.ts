@@ -24,9 +24,9 @@ async function createJWT(): Promise<string> {
     const jwtPayload = {
         iat,
         exp,
-        iss: "test",
-        aud: "test",
-        sub: "teslabank"
+        iss: "bridge", // issuer of the token (bank bridge) 
+        aud: "ach", // audience of the token (ledger)
+        sub: "teslabank" // subject of the token (bank handle)
     }
     
     const token = await signJWT(
