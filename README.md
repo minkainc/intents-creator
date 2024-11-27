@@ -116,6 +116,12 @@ This project is containerized to facilitate development. To use it:
 
 These tasks will make it easier to run the project without having to remember specific commands. This workflow works in both Visual Studio Code and Cursor IDE.
 
+# Testing
+To test the API, you can use the `test-create-intent.http` file located in the `src` folder and use the endpoint `POST http://localhost:9000/api/create-intent-sdk`
+
+Rest Client is a VS Code extension that allows you to test REST APIs.
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

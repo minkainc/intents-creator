@@ -24,9 +24,9 @@ async function createJWT(): Promise<string> {
     const jwtPayload = {
         iat,
         exp,
-        iss: "bridge", // issuer of the token (bank bridge) 
+        iss: "bridge@teslabank.io", // issuer of the token (bank bridge) 
         aud: "ach", // audience of the token (ledger)
-        sub: "teslabank" // subject of the token (bank handle)
+        sub: "teslabank.io" // subject of the token (bank handle)
     }
     
     const token = await signJWT(
@@ -52,7 +52,9 @@ export const getWalletsNonSDK = async (req: Request, res: Response) => {
         const response = await axios.get(`${config.LEDGER_SERVER}/wallets`, {
             headers: {
                 'Authorization': authorization,
-                'x-ledger': config.LEDGER_HANDLE
+                'x-ledger': config.LEDGER_HANDLE,
+                'clientId': config.CLIENT_ID,
+                'clientSecret': config.CLIENT_SECRET
             }
         });
         res.json(response.data.data.map((wallet: any) => ({

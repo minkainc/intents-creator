@@ -115,6 +115,11 @@ Este proyecto está contenerizado para facilitar el desarrollo. Para utilizarlo:
 
 Estas tasks facilitarán la ejecución del proyecto sin necesidad de recordar los comandos específicos. Este flujo de trabajo funciona tanto en Visual Studio Code como en Cursor IDE.
 
+# Pruebas
+Para probar la API puedes usar el archivo `test-create-intent.http` que se encuentra en la carpeta `src` y usar el endpoint `POST http://localhost:9000/api/create-intent-sdk`
+
+Rest Client es una extensión de VS Code que permite probar APIs REST.
+
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
