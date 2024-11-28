@@ -39,8 +39,9 @@ To set up the project, follow these steps:
    INTENT_PUBLIC_KEY=[public key to sign the intent]
    INTENT_PRIVATE_KEY=[private key to sign the intent]
    ```
-   Note: `INTENT_PUBLIC_KEY` and `INTENT_PRIVATE_KEY` should belong to the source domain.
-
+   Note: 
+   `INTENT_PUBLIC_KEY` and `INTENT_PRIVATE_KEY` should belong to the source domain.
+   `CLIENT_ID` and `CLIENT_SECRET` are the credentials of the client that will be used to authenticate requests to the server.
 ## Running the Application
 
 To run the application, you need to start both the server and the client:

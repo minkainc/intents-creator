@@ -37,8 +37,12 @@ Para configurar el proyecto, sigue estos pasos:
    LEDGER_HANDLE=[nombre del ledger]
    INTENT_PUBLIC_KEY=[clave pública para firmar el intent]
    INTENT_PRIVATE_KEY=[clave privada para firmar el intent]
+   CLIENT_ID=[client id]
+   CLIENT_SECRET=[client secret]
    ```
-   Nota: `INTENT_PUBLIC_KEY` e `INTENT_PRIVATE_KEY` deben pertenecer al dominio de origen.
+   Nota: 
+   `INTENT_PUBLIC_KEY` e `INTENT_PRIVATE_KEY` deben pertenecer al dominio de origen.
+   `CLIENT_ID` y `CLIENT_SECRET` Son las credenciales del cliente que se usará para autenticar las solicitudes al servidor.
 
 ## Ejecutando la Aplicación
 
