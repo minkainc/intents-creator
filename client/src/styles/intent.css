@@ -1,0 +1,38 @@
+.intent-list {
+    padding: 20px;
+}
+
+.intent-item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.intent-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.intent-details {
+    margin-top: 10px;
+}
+
+.intent-details pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.notification.error {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.sdk-toggle {
+    margin: 20px 0;
+} 

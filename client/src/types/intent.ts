@@ -17,3 +17,26 @@ export const accountTypes = [
   { label: 'CardAccount', value: 'card' },
 ];
 
+export interface Intent {
+    handle: string;
+    schema: string;
+    claims: {
+        action: string;
+        amount: number;
+        source: {
+            handle: string;
+        };
+        symbol: {
+            handle: string;
+        };
+        target: {
+            handle: string;
+        };
+    }[];
+    access: any[];
+    config: {
+        commit: string;
+    };
+    
+}
+

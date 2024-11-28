@@ -56,3 +56,15 @@ Content-Type: application/json
 GET http://localhost:9000/api/wallets-sdk
 Accept: application/json
 Content-Type: application/json
+
+
+### Test get wallets API
+GET http://localhost:9000/api/wallets-non-sdk
+Accept: application/json
+Content-Type: application/json
+
+
+### Test get Intents API
+GET http://localhost:9000/api/intents-non-sdk
+Accept: application/json
+Content-Type: application/json
