@@ -152,7 +152,9 @@ async function send(data: any): Promise<any> {
     console.log(`request: ${config.LEDGER_SERVER}/intents`);
     const response = await axios.post<any>(`${config.LEDGER_SERVER}/intents`, intent, {
       headers: {
-        'x-ledger': config.LEDGER_HANDLE
+        'x-ledger': config.LEDGER_HANDLE,
+        'clientId': config.CLIENT_ID,
+        'clientSecret': config.CLIENT_SECRET
       }
     });
     return response.data;

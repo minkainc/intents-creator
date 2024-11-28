@@ -81,6 +81,8 @@ const getSDK = () => {
         server: config.LEDGER_SERVER,
         ledger: config.LEDGER_HANDLE
     });
+    sdk.setHeader('clientId', config.CLIENT_ID);
+    sdk.setHeader('clientSecret', config.CLIENT_SECRET);
     return sdk;
 }
 

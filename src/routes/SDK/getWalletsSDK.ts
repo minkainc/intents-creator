@@ -21,6 +21,8 @@ const getSDK = () => {
          createHsh: false,
          kid: config.INTENT_PUBLIC_KEY
        });
+    sdk.setHeader('clientId', config.CLIENT_ID);
+    sdk.setHeader('clientSecret', config.CLIENT_SECRET);
     return sdk;
 }
 
