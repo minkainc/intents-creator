@@ -38,6 +38,8 @@ To set up the project, follow these steps:
    LEDGER_HANDLE=[ledger name]
    INTENT_PUBLIC_KEY=[public key to sign the intent]
    INTENT_PRIVATE_KEY=[private key to sign the intent]
+   CLIENT_ID=[client id]
+   CLIENT_SECRET=[client secret]
    ```
    Note: 
    `INTENT_PUBLIC_KEY` and `INTENT_PRIVATE_KEY` should belong to the source domain.
