@@ -30,6 +30,7 @@ const getSDK = () => {
 export const getIntentsSDK = async (req: Request, res: Response) => {
     try {
         const sdk = getSDK();
+        console.log(`server: ${config.LEDGER_SERVER}`);
         const response = await sdk.intent.list();
         
         res.json(response.intents);

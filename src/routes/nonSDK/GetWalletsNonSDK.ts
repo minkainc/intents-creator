@@ -48,6 +48,7 @@ export const getWalletsNonSDK = async (req: Request, res: Response) => {
     
     try {
         const authorization = await createJWT();
+        console.log(`server: ${config.LEDGER_SERVER}`);
     
         const response = await axios.get(`${config.LEDGER_SERVER}/wallets`, {
             headers: {

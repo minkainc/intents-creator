@@ -22,7 +22,7 @@ Content-Type: application/json
     "idNumber": "8546544"
   },
   "currency": "usd",
-  "amount": "65"
+  "amount": "63"
 }
 ### Test create-intent-non-sdk API
 
@@ -48,7 +48,7 @@ Content-Type: application/json
     "idNumber": "8546544"
   },
   "currency": "usd",
-  "amount": "65",
+  "amount": "60",
   "useSDK": false
 }
 
@@ -66,5 +66,10 @@ Content-Type: application/json
 
 ### Test get Intents API
 GET http://localhost:9000/api/intents-non-sdk
+Accept: application/json
+Content-Type: application/json
+
+### Test get Intents API
+GET http://localhost:9000/api/intents-sdk
 Accept: application/json
 Content-Type: application/json

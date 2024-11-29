@@ -28,8 +28,8 @@ const getSDK = () => {
 
 export const getWalletsSDK = async (req: Request, res: Response) => {
     try {
-        const sdk = getSDK();
-            
+        console.log(`server: ${config.LEDGER_SERVER}`);
+        const sdk = getSDK();   
         const response = await sdk.wallet.list();
         
         res.json(response.wallets);

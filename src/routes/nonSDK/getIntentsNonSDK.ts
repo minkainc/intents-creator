@@ -47,7 +47,7 @@ async function signJWT(payload: any, secret: string, verificationKey: string): P
 export const getIntentsNonSDK = async (req: Request, res: Response) => {
     try {
         const authorization = await createJWT();
-    
+        console.log(`server: ${config.LEDGER_SERVER}`);
         const response = await axios.get(`${config.LEDGER_SERVER}/intents`, {
             headers: {
                 'Authorization': authorization,
@@ -56,7 +56,7 @@ export const getIntentsNonSDK = async (req: Request, res: Response) => {
                 'clientSecret': config.CLIENT_SECRET
             }
         });
-        console.log(JSON.stringify(response.data.data, null, 2));
+        
         res.json(response.data.data.map((intent: any) => ({
             handle: intent.data.handle,
             schema: intent.data.schema,
